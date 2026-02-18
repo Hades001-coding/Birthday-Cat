@@ -9,8 +9,18 @@ overlay.addEventListener("click", () => {
 
     overlay.style.display = "none";
 
-    music.volume = 0.6;
-    music.play().catch(() => {});
+    // Force audio to load and play
+music.muted = false;
+music.volume = 1;
+music.currentTime = 0;
+
+const playPromise = music.play();
+
+if (playPromise !== undefined) {
+    playPromise.catch(error => {
+        console.log("Playback blocked:", error);
+    });
+}
 
     // Move cat forward
     cat.style.transform = "translateX(-50%) scale(1)";
