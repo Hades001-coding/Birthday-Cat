@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(to top, #1e1e2f, #4a204a);
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Overlay */
+#startOverlay {
+    position: fixed;
+    inset: 0;
+    background: #1e1e2f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
+    z-index: 20;
+    cursor: pointer;
+}
+
+/* Scene */
+.scene {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Floating Hearts */
+#hearts-container {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.heart {
+    position: absolute;
+    color: pink;
+    font-size: 20px;
+    animation: floatUp linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) scale(0.8);
+        opacity: 0;
+    }
+    10% { opacity: 0.8; }
+    100% {
+        transform: translateY(-10vh) scale(1.4);
+        opacity: 0;
+    }
+}
+
+/* Cat */
+.cat {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%) scale(0.3);
+    transition: transform 4s ease-in-out, bottom 4s ease-in-out;
+    z-index: 5;
+}
+
+.body {
+    width: 150px;
+    height: 120px;
+    background: #ffb6c1;
+    border-radius: 50%;
+}
+
+.head {
+    width: 120px;
+    height: 100px;
+    background: #ffc0cb;
+    border-radius: 50%;
+    position: absolute;
+    top: -60px;
+    left: 15px;
+}
+
+.ear {
+    width: 30px;
+    height: 40px;
+    background: #ff9bb3;
+    position: absolute;
+    top: -30px;
+    border-radius: 50%;
+}
+
+.ear.left { left: 10px; }
+.ear.right { right: 10px; }
+
+.eye {
+    width: 15px;
+    height: 15px;
+    background: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 40px;
+}
+
+.eye.left { left: 30px; }
+.eye.right { right: 30px; }
+
+.nose {
+    width: 12px;
+    height: 10px;
+    background: #ff4d6d;
+    border-radius: 50%;
+    position: absolute;
+    top: 55px;
+    left: 54px;
+}
+
+.rose {
+    position: absolute;
+    right: -30px;
+    top: 40px;
+}
+
+.stem {
+    width: 5px;
+    height: 60px;
+    background: green;
+}
+
+.flower {
+    width: 25px;
+    height: 25px;
+    background: red;
+    border-radius: 50%;
+    position: absolute;
+    top: -15px;
+    left: -10px;
+}
+
+/* Message */
+.message {
+    position: absolute;
+    top: 20%;
+    width: 100%;
+    text-align: center;
+    font-size: 2.5rem;
+    color: #fff;
+    opacity: 0;
+    transition: opacity 2s ease;
+    z-index: 6;
+    font-family: cursive;
+}
